@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <div style="text-align: center;">
+         <h1 style="color: red; font-size: 24px;">Welcome to my homepage</h1>
+         <p>${getTimeMessage()}, My name is ${name}</p>
+         <p>Current date is ${date}</p>
+
+         <h2>Your favourite emojis changing: 🤩</h2>
+     </div>
+
+     <script>
+         // Function to get a time-based message
+         function getTimeMessage() {
+             const hours = new Date().getHours();
+             if (hours < 12) return "Good morning";
+             else if (hours < 18) return "Good afternoon";
+             else return "Good evening";
+         }
+
+         // Set dynamic content
+         document.body.innerHTML = document.body.innerHTML
+             .replace('${getTimeMessage()}', getTimeMessage())
+             .replace('${name}', 'John Doe') // Replace with your name
+             .replace('${date}', new Date().toLocaleDateString());
+     </script>
+</body>
+</html>
